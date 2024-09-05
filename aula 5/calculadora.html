@@ -4,65 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
+    <style>
+        input {
+            width: 100px;
+            height: 30px;
+            margin: 5px;
+        }
+        button {
+            margin: 5px;
+        }
+        #informaResultado {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
 </head>
-<style>
-  
-</style>
 <body>
     <li>
-        Valor 1
-        <label for="valor1">:</label>
-        <input type="real" id="valor1">
+        Valor 1:
+        <input type="number" id="valor1">
     </li>
     <li>
-        Valor 2
-        <label for="valor2">:</label>
-        <input type="real" id="valor2">
+        Valor 2:
+        <input type="number" id="valor2">
     </li>
 
     <li>
         <button onclick="soma()">Soma</button>
         <button onclick="subtracao()">Subtração</button> 
-        <button onclick="multi()">Muliplicação</button> 
+        <button onclick="multi()">Multiplicação</button> 
         <button onclick="divi()">Divisão</button>
     </li>
     <li>
-        resultado
-        <input type="real" id="informaResultado">
+        Resultado:
+        <input type="text" id="informaResultado" readonly>
     </li>
-</body>
-    
-<script>
-    function getvalor1()
-    {
-        return parseFloat (document.getElementById('valor1').value); 
-    }
-    function getvalor2()
-    {
-        return parseFloat (document.getElementById('valor2').value); 
-    }
-    function soma ()
-    {
-        informaResultado (getvalor1() + getvalor2());
-    }
-    function subtracao ()
-    {
-        informaResultado (getvalor1() - getvalor2());
-    }
-    function multi ()
-    {
-        informaResultado (getvalor1() * getvalor2());
-    }
-    function Divi ()
-    {
-        informaResultado (getvalor1() / getvalor2());
+
+    <script>
+        function getValor1() {
+            return parseFloat(document.getElementById('valor1').value);
         }
-    function informaResultado(valor) 
-    {
-        var elResultado = document.getElementById(resultado)
-        elResultado.value = valor;
-        if(valor < 0) ( elResultado.style = "background-color = red"); else if (valor > 0)(elResultado.style = "background-color:green");
-        else (elResultado.style = "background-color: gray")
-    }
-</script>
+        
+        function getValor2() {
+            return parseFloat(document.getElementById('valor2').value);
+        }
+
+        function soma() {
+            informaResultado(getValor1() + getValor2());
+        }
+
+        function subtracao() {
+            informaResultado(getValor1() - getValor2());
+        }
+
+        function multi() {
+            informaResultado(getValor1() * getValor2());
+        }
+
+        function divi() {
+            informaResultado(getValor1() / getValor2());
+        }
+
+        function informaResultado(valor) {
+            var elResultado = document.getElementById('informaResultado');
+            elResultado.value = valor;
+
+            
+            if (valor < 0) {
+                elResultado.style.backgroundColor = 'red';
+            } else if (valor > 0) {
+                elResultado.style.backgroundColor = 'green';
+            } else {
+                elResultado.style.backgroundColor = 'gray';
+            }
+        }
+    </script>
+</body>
 </html>
